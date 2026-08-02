@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Made Fun - Kids School Portal</title>
+  <meta name="description" content="A colorful, animated, interactive school learning portal for kids in Class 1 to 5. Learn English, Maths, Hindi, EVS, and moral stories!">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Hind:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Floating Background Elements -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="cloud cloud-1">☁️</div>
+    <div class="cloud cloud-2">☁️</div>
+    <div class="cloud cloud-3">☁️</div>
+    <div class="sun">☀️</div>
+    <div class="floating-star star-1">⭐</div>
+    <div class="floating-star star-2">✨</div>
+    <div class="floating-star star-3">🌟</div>
+    <div class="floating-balloon balloon-1">🎈</div>
+    <div class="floating-balloon balloon-2">🎈</div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="#" class="logo-btn" onclick="app.navigateTo('home'); return false;">
+        <div class="logo-icon-wrapper">
+          <span class="logo-emoji">🦉</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">Learning Made Fun</span>
+          <span class="logo-subtitle">Created by Shivram Gawale</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <button class="nav-btn active" id="nav-home" onclick="app.navigateTo('home')">
+          <span class="nav-icon">🏠</span> Home
+        </button>
+        <button class="nav-btn" id="nav-classes" onclick="app.navigateTo('classes')">
+          <span class="nav-icon">🎒</span> Classes 1-5
+        </button>
+        <button class="nav-btn" id="nav-stories" onclick="app.navigateTo('stories')">
+          <span class="nav-icon">📖</span> Story Corner
+        </button>
+        <button class="nav-btn" id="nav-parents" onclick="app.navigateTo('parents')">
+          <span class="nav-icon">👨‍👩‍👧</span> For Parents
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Global Language Switcher Button -->
+        <button class="action-pill sound-pill" id="global-lang-btn" onclick="app.toggleGlobalLanguage()" title="Switch Language (English / हिन्दी)">
+          <span>🌐</span>
+          <span id="global-lang-label">🇮🇳 हिन्दी</span>
+        </button>
+
+        <!-- Sound Toggle Button -->
+        <button class="action-pill sound-pill" id="sound-toggle-btn" onclick="audioEngine.toggleSound()" title="Toggle Audio Narration">
+          <span id="sound-icon">🔊</span>
+          <span id="sound-label">Audio ON</span>
+        </button>
+
+        <!-- Stars Counter Pill -->
+        <div class="action-pill star-pill" title="Stars Earned">
+          <span class="star-icon">⭐</span>
+          <span id="total-stars-count">0</span>
+          <span class="pill-badge" id="superstar-badge-label">Superstar!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Continuous Scrolling Motion Banner -->
+    <div class="scrolling-ticker-bar">
+      <div class="scrolling-ticker-track">
+        <span>✨ Welcome to Learning Made Fun! • 🌟 Created by Shivram Gawale • 🎒 Classes 1 to 5 • 🔤 Phonics & Sentences • 🔢 Maths & Times Tables • 🇮🇳 Hindi Varnamala • 🌍 EVS Animated Video Explainers • 📖 Be Kind Story Corner • ⭐ Earn Stars & Badges!</span>
+        <span>✨ Welcome to Learning Made Fun! • 🌟 Created by Shivram Gawale • 🎒 Classes 1 to 5 • 🔤 Phonics & Sentences • 🔢 Maths & Times Tables • 🇮🇳 Hindi Varnamala • 🌍 EVS Animated Video Explainers • 📖 Be Kind Story Corner • ⭐ Earn Stars & Badges!</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="app-root" class="app-main-content">
+    <!-- Views will be dynamically rendered here -->
+  </main>
+
+  <!-- Floating Mascot Assistant -->
+  <div id="mascot-widget" class="mascot-floating-widget">
+    <div class="mascot-speech-bubble" id="mascot-speech-bubble">
+      <p id="mascot-speech-text">Hi there! I'm Professor Hoot! Click me for a learning tip! 🦉</p>
+      <button class="speech-close-btn" onclick="mascotController.hideSpeech()">&times;</button>
+    </div>
+    <div class="mascot-avatar-btn" onclick="mascotController.interact()" title="Click your mascot friend!">
+      <span id="mascot-avatar-emoji" class="mascot-emoji">🦉</span>
+      <span class="mascot-pulse"></span>
+    </div>
+    <div class="mascot-selector-bar">
+      <button onclick="mascotController.switchMascot('hoot')" title="Professor Hoot (Owl)">🦉</button>
+      <button onclick="mascotController.switchMascot('bear')" title="Barnaby Bear">🐻</button>
+      <button onclick="mascotController.switchMascot('bot')" title="Sparky Bot">🤖</button>
+      <button onclick="mascotController.switchMascot('teacher')" title="Miss Lily">👩‍🏫</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">🌈 Learning Made Fun</span>
+        <p>A safe, warm, and inspiring digital classroom for young minds.</p>
+        <p style="color:var(--primary-yellow); font-weight:700; margin-top:6px;">✨ Created by Shivram Gawale</p>
+      </div>
+      <div class="footer-quick-links">
+        <h4>Quick Explore</h4>
+        <a href="#" onclick="app.selectClass(1); return false;">Class 1</a>
+        <a href="#" onclick="app.selectClass(2); return false;">Class 2</a>
+        <a href="#" onclick="app.selectClass(3); return false;">Class 3</a>
+        <a href="#" onclick="app.selectClass(4); return false;">Class 4</a>
+        <a href="#" onclick="app.selectClass(5); return false;">Class 5</a>
+      </div>
+      <div class="footer-badge">
+        <span class="safety-shield">🛡️ 100% Kid Safe & Ad-Free</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Learning Made Fun School Portal. Created with ❤️ by <strong>Shivram Gawale</strong> for curious young learners.</p>
+    </div>
+  </footer>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" class="confetti-canvas-overlay"></canvas>
+
+  <!-- Load Modules -->
+  <script src="data/curriculum.js"></script>
+  <script src="data/stories.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/evsPlayer.js"></script>
+  <script src="js/mascots.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

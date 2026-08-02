@@ -1,0 +1,22 @@
+{
+  "name": "learning-made-fun-school-portal",
+  "version": "1.0.0",
+  "description": "Interactive Kid's School Portal (Classes 1-5) created by Shivram Gawale. Features English Phonics, Maths Hub, Hindi Varnamala, EVS Explainers, and Bilingual Moral Stories.",
+  "main": "index.html",
+  "scripts": {
+    "start": "py -m http.server 5173",
+    "serve": "npx -y serve .",
+    "build": "echo 'Static web app ready for deployment!'"
+  },
+  "keywords": [
+    "education",
+    "kids-learning",
+    "school-portal",
+    "bilingual",
+    "hindi-varnamala",
+    "maths-hub",
+    "shivram-gawale"
+  ],
+  "author": "Shivram Gawale",
+  "license": "MIT"
+}
