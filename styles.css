@@ -74,17 +74,20 @@ body {
   color: white;
   overflow: hidden;
   white-space: nowrap;
-  padding: 6px 0;
+  padding: 8px 0;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+  position: relative;
+  z-index: 95;
 }
 
 .scrolling-ticker-track {
-  display: inline-block;
+  display: inline-flex;
   white-space: nowrap;
-  animation: tickerScroll 30s linear infinite;
+  animation: tickerScroll 25s linear infinite;
   will-change: transform;
 }
 
@@ -92,9 +95,14 @@ body {
   animation-play-state: paused;
 }
 
+.scrolling-ticker-track span {
+  display: inline-block;
+  padding-right: 40px;
+}
+
 @keyframes tickerScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 /* Floating Background Animations */
